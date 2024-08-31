@@ -1,0 +1,100 @@
+.card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 300px; /* Initial compact width */
+  height: 200px;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  width: 600px; /* Expand the hovered card */
+  transform: scale(1.05);
+}
+
+.card-image {
+  width: 0; /* Hidden by default */
+  height: 100%;
+  background-image: url("Image.png");
+  background-size: cover;
+  background-position: center;
+  transition: width 0.5s ease;
+  margin-top: 32px;
+}
+
+.card:hover .card-image {
+  width: 50%; /* Reveal the image to cover half the card on hover */
+}
+
+.card-content {
+  padding: 20px;
+  color: #fff;
+  transition: width 0.5s ease;
+  width: 100%; /* Initially full width */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card:hover .card-content {
+  width: 50%; /* Shrink content width to make room for the image */
+}
+
+.card-content h3 {
+  margin-top: 0;
+  border-bottom: 2px solid rgb(252, 252, 252);
+  
+}
+
+button {
+  background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 5px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .card-container {
+    justify-content: center; /* Center the cards on the row */
+  }
+
+  .card {
+    width: 48%; /* Two cards per row on laptop-sized screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%; /* One card per row on tablet and mobile devices */
+  }
+}
